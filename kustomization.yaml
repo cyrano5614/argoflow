@@ -4,10 +4,10 @@ kind: Kustomization
 resources:
 # non-kubeflow
 # - argocd-applications/metallb.yaml
-# - argocd-applications/rook-ceph.yaml
+- argocd-applications/rook-ceph.yaml
 # - argocd-applications/nginx.yaml
 # - argocd-applications/nvidia-gpu-operator.yaml
-- argocd-applications/argocd.yaml
+# - argocd-applications/argocd.yaml
 - argocd-applications/istio.yaml
 # to use upstream istio comment out line above
 # and uncomment the next two line
