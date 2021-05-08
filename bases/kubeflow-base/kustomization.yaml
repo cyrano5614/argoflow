@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+# ISTIO
+- istio.yaml
+- dex-istio.yaml
+# to use upstream istio comment out line above
+# and uncomment the next two line
+# - argocd-applications/istio-upstream.yaml
+# - argocd-applications/istio-operator.yaml
+
+# Cert manager
+- cert-manager.yaml
+
+# Knative
+- knative.yaml
+
+# Katib
+- katib.yaml
+
+# Kubeflow
+- kubeflow-roles-namespaces.yaml
+- oidc-authservice.yaml
+- pipelines.yaml
+- kfserving.yaml
+- central-dashboard.yaml
+- pod-defaults.yaml
+- jupyter-web-app.yaml
+- notebook-controller.yaml
+- profile-controller_access-management.yaml
+- tensorboard-controller.yaml
+- tensorboards-web-app.yaml
+- volumes-web-app.yaml
+- tensorflow-operator.yaml
+- pytorch-operator.yaml
+- mpi-operator.yaml
+- mxnet-operator.yaml
+- xgboost-operator.yaml
+- user-namespace.yaml

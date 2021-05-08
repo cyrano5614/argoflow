@@ -8,8 +8,6 @@ spec:
   issuerRef:
     name: kubeflow-self-signing-issuer
     kind: ClusterIssuer
-  ipAddresses:
-  - 192.168.1.241
-  # commonName: kubeflow.example.com
-  # dnsNames:
-  #   - kubeflow.example.com
+  commonName: kubeflow.example.com
+  dnsNames:
+    - kubeflow.example.com
