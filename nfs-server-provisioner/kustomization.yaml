@@ -5,3 +5,4 @@ namespace: nfs-server-provisioner
 resources:
 - all.yaml
 - nfs-pv.yaml
+- namespace.yaml

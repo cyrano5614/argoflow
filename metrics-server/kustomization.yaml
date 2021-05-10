@@ -4,6 +4,7 @@ namespace: metrics-server
 
 resources:
 - https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.4/components.yaml
+- namespace.yaml
 
 # patchesStrategicMerge:
 # - deployment-patch.yaml
