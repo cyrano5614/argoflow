@@ -4,3 +4,8 @@ kind: Kustomization
 resources:
 - all.yaml
 - namespace.yaml
+
+patches:
+- path: deployment-patch.yaml
+  target:
+    kind: Deployment

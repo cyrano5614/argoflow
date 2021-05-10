@@ -7,10 +7,6 @@ resources:
   - configmap.yaml 
   - sealed-secrets.json
   # - secret.yaml
-patches:
-- path: deployment-patch.yaml
-  target:
-    kind: Deployment
 
 images:
 - name: metallb/controller
