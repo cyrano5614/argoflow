@@ -1,0 +1,9 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dummy
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  source:
+    repoURL: https://github.com/cyrano5614/argoflow

@@ -50,25 +50,31 @@ resources:
 # - argocd-applications/loki-stack.yaml
 # - argocd-applications/kiali.yaml
 
+# patchesStrategicMerge:
+# - finalizer-patch.yaml
 patches:
-- target:
+- path: finalizer-patch.yaml
+  target:
     kind: Application
-  patch: |-
-    - op: replace
-      path: /metadata/finalizers/0
-      value: resources-finalizer.argocd.argoproj.io
-    - op: replace
-      path: /spec/source/repoURL
-      value: https://github.com/cyrano5614/argoflow
-- target:
-    kind: Certificate
-    name: istio-ingressgateway-certs
-  patch: |-
-    - op: delete
-      path: /spec/commonName
-    - op: delete
-      path: /spec/dnsNames
-    - op: add
-      path: /spec/ipAddresses/-
-      value: 192.168.1.241
+# patches:
+# - target:
+#     kind: Application
+#   patch: |-
+#     - op: add
+#       path: /metadata/finalizers/-
+#       value: resources-finalizer.argocd.argoproj.io
+#     - op: replace
+#       path: /spec/source/repoURL
+#       value: https://github.com/cyrano5614/argoflow
+# - target:
+#     kind: Certificate
+#     name: istio-ingressgateway-certs
+#   patch: |-
+#     - op: delete
+#       path: /spec/commonName
+#     - op: delete
+#       path: /spec/dnsNames
+#     - op: add
+#       path: /spec/ipAddresses/-
+#       value: 192.168.1.241
 
