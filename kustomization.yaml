@@ -6,6 +6,7 @@ resources:
 ########
 - argocd-applications/sealed-secrets.yaml
 - argocd-applications/metallb.yaml
+- argocd-applications/metrics-server.yaml
 # - argocd-applications/nfs-server-provisioner.yaml
 # - argocd-applications/rook-ceph.yaml
 # - argocd-applications/nginx.yaml
