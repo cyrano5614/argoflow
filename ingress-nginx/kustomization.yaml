@@ -3,16 +3,18 @@ kind: Kustomization
 namespace: ingress-nginx
 
 resources:
-- https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.46.0/deploy/static/provider/baremetal/deploy.yaml
+- all.yaml
+- namespace.yaml
+# - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.46.0/deploy/static/provider/baremetal/deploy.yaml
 
 patches:
 - patch: |-
     - op: add
       path: /spec/template/spec/containers/0/args/-
       value: --enable-ssl-passthrough
-    - op: add
-      path: /spec/template/spec/containers/0/args/-
-      value: --publish-service=ingress-nginx/ingress-nginx-controller
+    # - op: add
+    #   path: /spec/template/spec/containers/0/args/-
+    #   value: --publish-service=ingress-nginx/ingress-nginx-controller
   target:
     kind: Deployment
     name: ingress-nginx-controller
