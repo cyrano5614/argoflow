@@ -20,4 +20,13 @@ patches:
       value: --kubelet-preferred-address-types=InternalIP
   target:
     kind: Deployment
+- path: apiservice-patch.yaml
+  target:
+    kind: APIService
+# - patch: |-
+#     - op: add
+#       path: /metadata/annotations/argocd.argoproj.io/sync-wave
+#       value: "5"
+#   target:
+#     kind: APIService
 
