@@ -2,27 +2,26 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- namespace.yaml
 - https://github.com/jetstack/cert-manager/releases/download/v1.3.1/cert-manager.yaml
 - kubeflow-self-signed-issuer.yaml
 - letsencrypt-cluster-issuer.yaml
 
-configMapGenerator:
-- name: default-install-config
-  envs:
-  - params.env
-vars:
-# These vars are used for substituing in the parameters from the config map
-# into the Profiles custom resource.
-- name: acme-email
-  objref:
-    kind: ConfigMap
-    name: default-install-config
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.acme-email
-configurations:
-- params.yaml
+# configMapGenerator:
+# - name: default-install-config
+#   envs:
+#   - params.env
+# vars:
+# # These vars are used for substituing in the parameters from the config map
+# # into the Profiles custom resource.
+# - name: acme-email
+#   objref:
+#     kind: ConfigMap
+#     name: default-install-config
+#     apiVersion: v1
+#   fieldref:
+#     fieldpath: data.acme-email
+# configurations:
+# - params.yaml
 
 images:
 - name: quay.io/jetstack/cert-manager-controller
