@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 # non-kubeflow
 ########
+- argocd-applications/sealed-secrets.yaml
 - argocd-applications/metallb.yaml
 # - argocd-applications/nfs-server-provisioner.yaml
 # - argocd-applications/rook-ceph.yaml
