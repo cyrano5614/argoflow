@@ -7,3 +7,6 @@ metadata:
 spec:
   source:
     repoURL: https://github.com/cyrano5614/argoflow
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
