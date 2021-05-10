@@ -5,14 +5,19 @@ namespace: metrics-server
 resources:
 - https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.4/components.yaml
 
+# patchesStrategicMerge:
+# - deployment-patch.yaml
+# - path: deployment-patch.yaml
+  # target:
+  #   kind: Deployment
 patches:
 - patch: |-
     - op: add
       path: /spec/template/spec/containers/0/args/-
       value: --kubelet-insecure-tls=true
-    # - op: add
-    #   path: /spec/template/spec/containers/0/args/-
-    #   value: --kubelet-preferred-address-types=InternalIP
+    - op: replace
+      path: /spec/template/spec/containers/0/args/2
+      value: --kubelet-preferred-address-types=InternalIP
   target:
     kind: Deployment
 
