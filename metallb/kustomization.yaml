@@ -5,6 +5,7 @@ namespace: metallb-system
 resources:
   - github.com/metallb/metallb/manifests?ref=2233271f768663a9a52e9ef629867f3aa3f30833 # tag=v0.9.6
   - configmap.yaml 
+  - sealed-secrets.json
   # - secret.yaml
 
 images:
