@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/cyrano5614/argoflow
     targetRevision: HEAD
-    path: overlays/local
+    path: .
     kustomize:
       version: v4.0.5
   destination:
