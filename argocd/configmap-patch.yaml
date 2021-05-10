@@ -3,6 +3,17 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
 data:
+  url: $dex.github.url
+  connectors: |
+    # GitHub example
+    - type: github
+      id: github
+      name: GitHub
+      config:
+        clientID: $dex.github.clientID
+        clientSecret: $dex.github.clientSecret
+        # orgs:
+        # - name: cyrano5614
   kustomize.version.v4.0.5: /custom-tools/kustomize_4_0_5
   resource.compareoptions: |
     ignoreAggregatedRoles: true
