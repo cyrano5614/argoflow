@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-        - name: controller
+        - name: sealed-secrets
           args:
           - --key-prefix
           - sealed-secrets-key
