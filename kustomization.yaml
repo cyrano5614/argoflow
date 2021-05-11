@@ -5,7 +5,7 @@ resources:
 # non-kubeflow
 ########
 - argocd-applications/sealed-secrets.yaml
-# - argocd-applications/metallb.yaml
+- argocd-applications/metallb.yaml
 - argocd-applications/metrics-server.yaml
 - argocd-applications/nfs-server-provisioner.yaml
 - argocd-applications/ingress-nginx.yaml
