@@ -8,5 +8,7 @@ spec:
   issuerRef:
     name: kubeflow-self-signing-issuer
     kind: ClusterIssuer
+  isCA: true
+  commonName: "istio-ingressgateway-root-ca"
   ipAddresses:
   - 192.168.1.241
