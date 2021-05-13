@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- ingress.yaml
+# - ingress.yaml
 - namespace.yaml
 - github.com/argoproj/argo-cd/manifests/cluster-install?ref=33eaf11e3abd8c761c726e815cbb4b6af7dcb030 # tag=v2.0.1
 # - github.com/argoproj/argo-cd/manifests/ha/cluster-install?ref=33eaf11e3abd8c761c726e815cbb4b6af7dcb030 # tag=v2.0.1
@@ -11,6 +11,7 @@ resources:
 patchesStrategicMerge:
 - configmap-patch.yaml
 - add-custom-kustomize.yaml
+- service-patch.yaml
 
 images:
 - name: ghcr.io/dexidp/dex
