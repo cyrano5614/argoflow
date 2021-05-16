@@ -15,9 +15,17 @@ spec:
       name: letsencrypt-staging
     # Add a single challenge solver, HTTP01 using nginx
     solvers:
-    - http01:
-        ingress:
-          class: nginx
+    - dns01:
+        cloudDNS:
+          # The ID of the GCP project
+          project: default-project-1502
+          # This is the secret used to access the service account
+          serviceAccountSecretRef:
+            name: clouddns-dns01-solver-svc-acct
+            key: keys.json
+    # - http01:
+    #     ingress:
+    #       class: istio
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -35,6 +43,14 @@ spec:
       name: letsencrypt-prod
     # Add a single challenge solver, HTTP01 using nginx
     solvers:
-    - http01:
-        ingress:
-          class: nginx
+    - dns01:
+        cloudDNS:
+          # The ID of the GCP project
+          project: default-project-1502
+          # This is the secret used to access the service account
+          serviceAccountSecretRef:
+            name: clouddns-dns01-solver-svc-acct
+            key: keys.json
+    # - http01:
+    #     ingress:
+    #       class: istio

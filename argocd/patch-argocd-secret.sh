@@ -17,4 +17,4 @@ ENCODEDURL=$(echo -ne "$CLIENTURL" | base64);
 
 # kubectl -n argocd patch secret argocd-secret --type='json' -p='[{"op" : "add" ,"path" : "/data/dex.github.clientSecret" ,"value" : "'"$ENCODEDSECRET"'"}]' --dry-run=client -o yaml
 
-kubectl -n argocd patch secret argocd-secret --type='json' -p='[{"op" : "add" ,"path" : "/data/dex.github.clientID" ,"value" : "'"$ENCODEDID"'"},{"op" : "add" ,"path" : "/data/dex.github.clientSecret" ,"value" : "'"$ENCODEDSECRET"'"},{"op" : "add" ,"path" : "/data/dex.github.clienturl" ,"value" : "'"$ENCODEDURL"'"}]'
+kubectl -n argocd patch secret argocd-secret --type='json' -p='[{"op" : "add" ,"path" : "/data/dex.github.clientID" ,"value" : "'"$ENCODEDID"'"},{"op" : "add" ,"path" : "/data/dex.github.clientSecret" ,"value" : "'"$ENCODEDSECRET"'"},{"op" : "add" ,"path" : "/data/dex.github.url" ,"value" : "'"$ENCODEDURL"'"}]'
