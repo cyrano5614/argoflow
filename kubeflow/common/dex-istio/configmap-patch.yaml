@@ -41,10 +41,10 @@ data:
       name: GitHub
       config:
         # Credentials can be string literals or pulled from the environment.
-        clientID: CLIENT_ID
-        clientSecret: CLIENT_SECRETS
+        clientID: $CLIENT_ID
+        clientSecret: $CLIENT_SECRETS
         # redirectURI: http://dex.auth.svc.cluster.local:5556/dex/callback
-        redirectURI: CLIENT_CALLBACK
+        redirectURI: $CLIENT_CALLBACK
         # redirectURI: https://127.0.0.1:5556/dex/callback
         orgs:
             - name: rois-theorem
