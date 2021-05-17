@@ -4,7 +4,8 @@ metadata:
   name: dex
 data:
   config.yaml: |
-    issuer: http://dex.auth.svc.cluster.local:5556/dex
+    # issuer: http://dex.auth.svc.cluster.local:5556/dex
+    issuer: https://kf.rois-theorem.com/dex
     storage:
       type: kubernetes
       config:
@@ -28,5 +29,27 @@ data:
     # https://github.com/dexidp/dex/pull/1664
     - idEnv: OIDC_CLIENT_ID
       redirectURIs: ["/login/oidc"]
+      # redirectURIs: ["/login/oidc", "https://kf.rois-theorem.com/login/oidc"]
+      # redirectURIs: ["/login/oidc", "https://kf.rois-theorem.com/dex/login/oidc"]
       name: 'Dex Login Application'
       secretEnv: OIDC_CLIENT_SECRET
+    connectors:
+    - type: github
+      # Required field for connector id.
+      id: github
+      # Required field for connector name.
+      name: GitHub
+      config:
+        # Credentials can be string literals or pulled from the environment.
+        clientID: CLIENT_ID
+        clientSecret: CLIENT_SECRETS
+        # redirectURI: http://dex.auth.svc.cluster.local:5556/dex/callback
+        redirectURI: CLIENT_CALLBACK
+        # redirectURI: https://127.0.0.1:5556/dex/callback
+        orgs:
+            - name: rois-theorem
+              teams:
+                  - admins
+        loadAllGroups: false
+
+        # redirectURI: http://dex.auth.svc.cluster.local:5556/dex/callback
